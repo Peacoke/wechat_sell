@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace需要映射的接口类  -->
+<mapper namespace="com.work.dao.StudentDao">
+    <resultMap id="studentMap" type="com.work.bean.Student" >
+        <id property="sid" column="sid"/>
+        <result property="sname" column="sname"/>
+        <result property="sage" column="sage"/>
+        <result property="ssex" column="ssex"/>
+    </resultMap>
+
+
+    <!-- 查询学生 -->
+    <select id="selectStudents" resultMap="studentMap">
+		select sid,sname,sage,ssex from student
+	</select>
+
+
+</mapper>

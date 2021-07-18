@@ -14,13 +14,13 @@ import static org.junit.Assert.*;
 /**
  * Created by Peacoke on 2018/7/28.
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class ProductCategoryServiceImplTest {
-    @Autowired
+    //@Autowired
     private ProductCategoryServiceImpl categoryService;
 
-    @Test
+   /* @Test
     public void findOne() throws Exception {
         ProductCategory productCategory= categoryService.findOne(8);
         System.out.println("productCategory:"+productCategory.toString());
@@ -40,6 +40,6 @@ public class ProductCategoryServiceImplTest {
 
     @Test
     public void save() throws Exception {
-    }
+    }*/
 
 }

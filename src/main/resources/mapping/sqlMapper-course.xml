@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace需要映射的接口类  -->
+<mapper namespace="com.work.dao.CourseDao">
+    <resultMap id="courseMap" type="com.work.bean.Course">
+        <id property="cid" column="cid"/>
+        <result property="cname" column="cname"/>
+
+        <association property="teacher" javaType="com.work.bean.Teacher" column="tid">
+            <id property="tid" column="tid"/>
+            <result property="tname" column="tname"/>
+        </association>
+
+
+    </resultMap>
+
+    <select id="listCourse" resultMap="courseMap">
+		select c.cid, c.cname,t.tid,t.tname from course c,teacher t where t.tid = c.tid
+	</select>
+
+</mapper>

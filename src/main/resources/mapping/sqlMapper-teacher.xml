@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace需要映射的接口类  -->
+<mapper namespace="com.work.dao.TeacherDao">
+    <resultMap id="teacherMap" type="com.work.bean.Teacher">
+        <id property="tid" column="tid"/>
+        <result property="tname" column="tname"/>
+        <!-- <collection property="courseList" ofType="com.work.bean.Course" column="tid">
+             <id property="cid" column="cid"/>
+             <result property="cname" column="cname"/>
+         </collection>-->
+
+        <!--方式1-->
+        <!--<collection property="courseList" ofType="com.work.bean.Course">
+             <id property="cid" column="cid"/>
+             <result property="cname" column="cname"/>
+         </collection>-->
+
+        <!--方式2-->
+        <collection property="courseList" javaType="java.util.List" column="tid"
+                    ofType="com.work.bean.Course" select="listCourse"/>
+    </resultMap>
+
+
+    <resultMap id="courseMap" type="com.work.bean.Course">
+        <id property="cid" column="cid"/>
+        <result property="cname" column="cname"/>
+    </resultMap>
+
+
+    <!--<select id="selectTeachers" resultMap="teacherMap">
+		select tid,tname from teacher
+	</select>-->
+
+    <!--方式1-->
+    <!--<select id="selectTeachers" resultMap="teacherMap">
+            select  t.tid, t.tname,c.cid,c.cname from teacher t ,course c  where t.tid = c.tid
+        </select>-->
+
+    <!--方式2-->
+    <select id="selectTeachers" resultMap="teacherMap">
+		select t.tid, t.tname from teacher t
+	</select>
+
+    <select id="listCourse" resultMap="courseMap">
+         select  c.cid, c.cname from course c where c.tid = #{tid}
+     </select>
+
+</mapper>

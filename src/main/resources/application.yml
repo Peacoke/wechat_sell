@@ -4,7 +4,7 @@ spring:
           driver-class-name: com.mysql.jdbc.Driver
           username: root
           password: root
-          url: jdbc:mysql://192.168.1.15/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+          url: jdbc:mysql://192.168.125.132/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
         jpa:
           show-sql: true
           properties:
@@ -21,4 +21,20 @@ server:
 wechat:
         mpAppId: wxbbceea99fb9a5fa1
         mpAppSecret: 0dfa9ef62a531ff6504c0d9c3a78fb49
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper*.xml
+  type-aliases-package: com.work.bean
+  configuration:
+    //延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置 fetchType 属性来覆盖该项的开
+    lazy-loading-enabled: true
+    //当开启时，任何方法的调用都会加载该对象的所有属性。 否则，每个属性会按需加载（参考 lazyLoadTriggerMethods)。
+    aggressive-lazy-loading: false
+logging:
+  level:
+    com:
+      work:
+        dao: DEBUG
+
+
+
 
