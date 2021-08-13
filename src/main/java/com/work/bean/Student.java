@@ -1,12 +1,13 @@
 package com.work.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Peacoke on 2021/7/16.
  */
-public class Student {
+public class Student implements Serializable {
 
 
     private String sid;

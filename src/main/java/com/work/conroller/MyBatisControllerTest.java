@@ -6,9 +6,9 @@ import com.work.bean.Teacher;
 import com.work.dao.CourseDao;
 import com.work.dao.StudentDao;
 import com.work.dao.TeacherDao;
+import com.work.service.StudentService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -63,5 +63,35 @@ public class MyBatisControllerTest {
         return "yes";
 
     }
+
+    @Resource
+    StudentService studentService;
+
+    @ResponseBody
+    @RequestMapping(value = "/stu", method = {RequestMethod.GET, RequestMethod.POST})
+    public String testStudent(@RequestParam(value = "sid") String sid) {
+        Student student = studentService.queryStudentBySid(sid);
+        System.out.println(student.toString());
+
+        Student student2 = studentService.queryStudentBySid(sid);
+        System.out.println("student2:" + student2.toString());
+        return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/update", method = {RequestMethod.GET, RequestMethod.POST})
+    public String update(@RequestParam(value = "sid") String sid) {
+        Student student = studentService.queryStudentBySid(sid);
+        System.out.println(student.toString());
+
+        student.setSname("Bob");
+
+        Student student2 = studentService.update(student);
+        System.out.println("student2:" + student2);
+       /* Student student2 = studentService.queryStudentBySid(sid);
+        System.out.println("student2:" + student2.toString());*/
+        return "success";
+    }
+
 
 }
