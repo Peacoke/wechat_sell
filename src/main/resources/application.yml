@@ -75,7 +75,7 @@ server:
         port: 8080
         servlet:
           context-path: /sell
-
+#Actuator配置
 wechat:
         mpAppId: wxbbceea99fb9a5fa1
         mpAppSecret: 0dfa9ef62a531ff6504c0d9c3a78fb49

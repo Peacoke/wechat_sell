@@ -80,6 +80,12 @@
 			<version>2.3.11.RELEASE</version>
 		</dependency>
 
+		<!--Actuator-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!--公众号-->
 		<dependency>
 			<groupId>com.github.binarywang</groupId>
