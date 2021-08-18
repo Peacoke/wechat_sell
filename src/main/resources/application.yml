@@ -71,11 +71,12 @@ spring:
           host: 192.168.125.132
           database: 0
           port: 6379
+        #springboot邮件
 server:
         port: 8080
         servlet:
           context-path: /sell
-#Actuator配置
+
 wechat:
         mpAppId: wxbbceea99fb9a5fa1
         mpAppSecret: 0dfa9ef62a531ff6504c0d9c3a78fb49
@@ -87,6 +88,18 @@ logging:
     com:
       work:
         dao: DEBUG
+#Actuator配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: false
+
 
 
 

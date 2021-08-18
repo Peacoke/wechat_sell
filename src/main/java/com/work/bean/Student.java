@@ -1,5 +1,8 @@
 package com.work.bean;
 
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -7,9 +10,10 @@ import java.util.List;
 /**
  * Created by Peacoke on 2021/7/16.
  */
+@ControllerAdvice
 public class Student implements Serializable {
 
-
+    @NotNull(message = "不为空")
     private String sid;
     private String sname;
     private Date sage;
