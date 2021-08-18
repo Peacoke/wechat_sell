@@ -29,7 +29,7 @@ public class PrintWordScheduler {
         //4、执行
         scheduler.scheduleJob(jobDetail, trigger);
         System.out.println("--------scheduler start ! ------------");
-        scheduler.sScheduledExecutorService tart();
+        scheduler.start();
 
         //睡眠
         TimeUnit.MINUTES.sleep(1);
