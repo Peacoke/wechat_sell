@@ -1,19 +1,7 @@
 package com.work.conroller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
-
-import javax.annotation.Resource;
-import javax.mail.internet.MimeMessage;
-import java.io.File;
 
 
 /**
@@ -24,13 +12,13 @@ import java.io.File;
 @RequestMapping("/email")
 public class EmailController {
 
-    @Resource
+   /* @Resource
     private JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
     private String from;
 
-    private static final String ADDRESS = "codewar@163.com";
+    private static final String ADDRESS = "code???@163.com";*/
 
     /**
      * 发送普通邮件
